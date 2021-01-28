@@ -1,0 +1,300 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2021-01-28T21:36:16Z",
+    "title": "SunairioAPI"
+  },
+  "host": "sunairio-api.com",
+  "basePath": "/v1",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/fcst": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fcstDate",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fmt",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "cols",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "loc",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "quantile",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tz",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "cycle",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "timeFmt",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "agg",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "freq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "SunairioAuthViaLambdaDB": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/project": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fmt",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "loc",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "projName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tz",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "timeFmt",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "freq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "marksDate",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "bucket",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "SunairioAuthViaLambdaDB": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/rawfile": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "fcstDate",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "loc",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tz",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "cycle",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "agg",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "timeFmt",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "freq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "SunairioAuthViaLambdaDB": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "x-api-key",
+      "in": "header"
+    },
+    "SunairioAuthViaLambdaDB": {
+      "type": "apiKey",
+      "name": "apiKey",
+      "in": "query",
+      "x-amazon-apigateway-authtype": "custom"
+    }
+  },
+  "definitions": {
+    "Empty": {
+      "type": "object",
+      "title": "Empty Schema"
+    }
+  }
+}
